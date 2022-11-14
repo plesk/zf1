@@ -194,18 +194,17 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
         }
 
         // Update internal properties using $client->responseBody;
-        @ini_set('track_errors', 1);
         $newEntry = new DOMDocument;
         $newEntry = @Zend_Xml_Security::scan($response->getBody(), $newEntry);
-        @ini_restore('track_errors');
 
         if (!$newEntry) {
             // prevent the class to generate an undefined variable notice (ZF-2590)
-            if (!isset($php_errormsg)) {
+            $message = error_get_last()['message'] ?? null;
+            if (null === $message) {
                 if (function_exists('xdebug_is_enabled')) {
-                    $php_errormsg = '(error message not available, when XDebug is running)';
+                    $message = '(error message not available, when XDebug is running)';
                 } else {
-                    $php_errormsg = '(error message not available)';
+                    $message = '(error message not available)';
                 }
             }
 
@@ -213,7 +212,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
              * @see Zend_Feed_Exception
              */
             ;// require_once 'Zend/Feed/Exception.php';
-            throw new Zend_Feed_Exception('XML cannot be parsed: ' . $php_errormsg);
+            throw new Zend_Feed_Exception('XML cannot be parsed: ' . $message);
         }
 
         $newEntry = $newEntry->getElementsByTagName($this->_rootElement)->item(0);

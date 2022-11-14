@@ -257,15 +257,14 @@ class Zend_Feed
      */
     public static function importFile($filename)
     {
-        @ini_set('track_errors', 1);
         $feed = @file_get_contents($filename);
-        @ini_restore('track_errors');
         if ($feed === false) {
             /**
              * @see Zend_Feed_Exception
              */
             ;// require_once 'Zend/Feed/Exception.php';
-            throw new Zend_Feed_Exception("File could not be loaded: $php_errormsg");
+            $message = error_get_last()['message'] ?? 'Unknown error';
+            throw new Zend_Feed_Exception("File could not be loaded: $message");
         }
         return self::importString($feed);
     }
@@ -297,16 +296,15 @@ class Zend_Feed
         $contents = $response->getBody();
 
         // Parse the contents for appropriate <link ... /> tags
-        @ini_set('track_errors', 1);
         $pattern = '~(<link[^>]+)/?>~i';
         $result = @preg_match_all($pattern, $contents, $matches);
-        @ini_restore('track_errors');
         if ($result === false) {
             /**
              * @see Zend_Feed_Exception
              */
             ;// require_once 'Zend/Feed/Exception.php';
-            throw new Zend_Feed_Exception("Internal error: $php_errormsg");
+            $message = error_get_last()['message'] ?? 'Unknown error';
+            throw new Zend_Feed_Exception("Internal error: $message");
         }
 
         // Try to fetch a feed for each link tag that appears to refer to a feed

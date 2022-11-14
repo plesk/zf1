@@ -652,16 +652,15 @@ class Zend_Gdata_YouTube extends Zend_Gdata_Media
     public static function parseFormUploadTokenResponse($response)
     {
         // Load the feed as an XML DOMDocument object
-        @ini_set('track_errors', 1);
         $doc = new DOMDocument();
         $doc = @Zend_Xml_Security::scan($response, $doc);
-        @ini_restore('track_errors');
 
         if (!$doc) {
             ;// require_once 'Zend/Gdata/App/Exception.php';
+            $message = error_get_last()['message'] ?? 'Unknown error';
             throw new Zend_Gdata_App_Exception(
                 "Zend_Gdata_YouTube::parseFormUploadTokenResponse - " .
-                "DOMDocument cannot parse XML: $php_errormsg");
+                "DOMDocument cannot parse XML: $message");
         }
         $responseElement = $doc->getElementsByTagName('response')->item(0);
 
@@ -799,8 +798,8 @@ class Zend_Gdata_YouTube extends Zend_Gdata_Media
      *         Zend_Gdata_YouTube_Inbox_Entry representing the sent message.
      *
      */
-    public function sendVideoMessage($body, $videoEntry = null,
-        $videoId = null, $recipientUserName)
+    public function sendVideoMessage($body, $videoEntry,
+        $videoId, $recipientUserName)
     {
         if (!$videoId && !$videoEntry) {
             ;// require_once 'Zend/Gdata/App/InvalidArgumentException.php';

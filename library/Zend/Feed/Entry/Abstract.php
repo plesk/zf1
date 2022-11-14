@@ -80,18 +80,17 @@ abstract class Zend_Feed_Entry_Abstract extends Zend_Feed_Element
         if (!($element instanceof DOMElement)) {
             if ($element) {
                 // Load the feed as an XML DOMDocument object
-                @ini_set('track_errors', 1);
                 $doc = new DOMDocument();
                 $doc = @Zend_Xml_Security::scan($element, $doc);
-                @ini_restore('track_errors');
 
                 if (!$doc) {
                     // prevent the class to generate an undefined variable notice (ZF-2590)
-                    if (!isset($php_errormsg)) {
+                    $message = error_get_last()['message'] ?? null;
+                    if (null === $message) {
                         if (function_exists('xdebug_is_enabled')) {
-                            $php_errormsg = '(error message not available, when XDebug is running)';
+                            $message = '(error message not available, when XDebug is running)';
                         } else {
-                            $php_errormsg = '(error message not available)';
+                            $message = '(error message not available)';
                         }
                     }
 
@@ -99,7 +98,7 @@ abstract class Zend_Feed_Entry_Abstract extends Zend_Feed_Element
                      * @see Zend_Feed_Exception
                      */
                     ;// require_once 'Zend/Feed/Exception.php';
-                    throw new Zend_Feed_Exception("DOMDocument cannot parse XML: $php_errormsg");
+                    throw new Zend_Feed_Exception("DOMDocument cannot parse XML: $message");
                 }
 
                 $element = $doc->getElementsByTagName($this->_rootElement)->item(0);
