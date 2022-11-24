@@ -415,10 +415,14 @@ class Zend_Feed_Reader
         }
         $responseHtml = $response->getBody();
         $libxml_errflag = libxml_use_internal_errors(true);
-        $oldValue = libxml_disable_entity_loader(true);
+        if (\LIBXML_VERSION < 20900) {
+            $oldValue = libxml_disable_entity_loader(true);
+        }
         $dom = new DOMDocument;
         $status = $dom->loadHTML($responseHtml);
-        libxml_disable_entity_loader($oldValue);
+        if (\LIBXML_VERSION < 20900) {
+            libxml_disable_entity_loader($oldValue);
+        }
         libxml_use_internal_errors($libxml_errflag);
         if (!$status) {
             // Build error message
@@ -453,7 +457,9 @@ class Zend_Feed_Reader
         } elseif($feed instanceof DOMDocument) {
             $dom = $feed;
         } elseif(is_string($feed) && !empty($feed)) {
-            //$oldValue = libxml_disable_entity_loader(true);
+            if (\LIBXML_VERSION < 20900) {
+                $oldValue = libxml_disable_entity_loader(true);
+            }
             $dom = new DOMDocument;
             try {
                 $dom = Zend_Xml_Security::scan($feed, $dom);
@@ -463,7 +469,9 @@ class Zend_Feed_Reader
                     $e->getMessage()
                 );
             }
-            //libxml_disable_entity_loader($oldValue);
+            if (\LIBXML_VERSION < 20900) {
+                libxml_disable_entity_loader($oldValue);
+            }
             if (!$dom) {
                 $message = error_get_last()['message'] ?? null;
                 if (null === $message) {
