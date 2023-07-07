@@ -184,7 +184,7 @@ class Zend_Stdlib_PriorityQueue implements Countable, IteratorAggregate, Seriali
      */
     public function serialize()
     {
-        return serialize($this->items);
+        return serialize($this->__serialize());
     }
 
     /**
@@ -197,9 +197,7 @@ class Zend_Stdlib_PriorityQueue implements Countable, IteratorAggregate, Seriali
      */
     public function unserialize($data)
     {
-        foreach (unserialize($data) as $item) {
-            $this->insert($item['data'], $item['priority']);
-        }
+        $this->__unserialize(unserialize($data));
     }
 
     /**
@@ -315,5 +313,17 @@ class Zend_Stdlib_PriorityQueue implements Countable, IteratorAggregate, Seriali
     public function returnData($item)
     {
         return $item['data'];
+    }
+
+    public function __serialize(): array
+    {
+        return $this->items;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        foreach ($data as $item) {
+            $this->insert($item['data'], $item['priority']);
+        }
     }
 }
