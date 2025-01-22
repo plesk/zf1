@@ -231,8 +231,8 @@ applicationOrModule/
             </para>
 
             <programlisting role="php"><![CDATA[
-string render(string $action = null,
-              string $name = null,
+string render(?string $action = null,
+              ?string $name = null,
               bool $noController = false);
 ]]>
             </programlisting>
@@ -293,7 +293,7 @@ class MyController extends Zend_Controller_Action
         <itemizedlist>
             <listitem>
                 <para>
-                    <code>_forward($action, $controller = null, $module = null, array $params = null)</code> ：执行另外一个动作。如果在<code>preDispatch()</code>里调用，当前请求的动作将被跳过来支持新的动作。否则，在当前动作被处理之后，在_forward()请求的动作将被执行。
+                    <code>_forward($action, $controller = null, $module = null, ?array $params = null)</code> ：执行另外一个动作。如果在<code>preDispatch()</code>里调用，当前请求的动作将被跳过来支持新的动作。否则，在当前动作被处理之后，在_forward()请求的动作将被执行。
                 </para>
             </listitem>
 

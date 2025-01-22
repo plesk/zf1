@@ -1003,7 +1003,7 @@ $form->setDefaultDisplayGroupClass('My_DisplayGroup');
                     <itemizedlist>
                         <listitem>
                             <para>
-                                <methodname>setView(Zend_View_Interface $view = null)</methodname>
+                                <methodname>setView(?Zend_View_Interface $view = null)</methodname>
                             </para>
                         </listitem>
 
@@ -1011,7 +1011,7 @@ $form->setDefaultDisplayGroupClass('My_DisplayGroup');
 
                         <listitem>
                             <para>
-                                <methodname>render(Zend_View_Interface $view = null)</methodname>
+                                <methodname>render(?Zend_View_Interface $view = null)</methodname>
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -1948,7 +1948,7 @@ $validValues = $form->getValidValues($_POST);
                 <itemizedlist>
                     <listitem>
                         <para>
-                            <methodname>setView(Zend_View_Interface $view = null)</methodname>
+                            <methodname>setView(?Zend_View_Interface $view = null)</methodname>
                         </para>
                     </listitem>
 
@@ -1979,7 +1979,7 @@ $validValues = $form->getValidValues($_POST);
 
                     <listitem>
                         <para>
-                            <methodname>render(Zend_View_Interface $view = null)</methodname>
+                            <methodname>render(?Zend_View_Interface $view = null)</methodname>
                         </para>
                     </listitem>
                 </itemizedlist>

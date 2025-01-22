@@ -85,12 +85,12 @@ class Zend_View_Helper_Navigation_Sitemap
      * View helper entry point:
      * Retrieves helper and optionally sets container to operate on
      *
-     * @param  Zend_Navigation_Container $container  [optional] container to
+     * @param  ?Zend_Navigation_Container $container [optional] container to
      *                                               operate on
      * @return Zend_View_Helper_Navigation_Sitemap   fluent interface, returns
      *                                               self
      */
-    public function sitemap(Zend_Navigation_Container $container = null)
+    public function sitemap(?Zend_Navigation_Container $container = null)
     {
         if (null !== $container) {
             $this->setContainer($container);
@@ -275,7 +275,7 @@ class Zend_View_Helper_Navigation_Sitemap
     /**
      * Returns a DOMDocument containing the Sitemap XML for the given container
      *
-     * @param  Zend_Navigation_Container $container  [optional] container to get
+     * @param  ?Zend_Navigation_Container $container [optional] container to get
      *                                               breadcrumbs from, defaults
      *                                               to what is registered in the
      *                                               helper
@@ -288,7 +288,7 @@ class Zend_View_Helper_Navigation_Sitemap
      *                                               validators are used and the
      *                                               loc element fails validation
      */
-    public function getDomSitemap(Zend_Navigation_Container $container = null)
+    public function getDomSitemap(?Zend_Navigation_Container $container = null)
     {
         if (null === $container) {
             $container = $this->getContainer();
@@ -425,13 +425,13 @@ class Zend_View_Helper_Navigation_Sitemap
      *
      * Implements {@link Zend_View_Helper_Navigation_Helper::render()}.
      *
-     * @param  Zend_Navigation_Container $container  [optional] container to
+     * @param  ?Zend_Navigation_Container $container [optional] container to
      *                                               render. Default is to
      *                                               render the container
      *                                               registered in the helper.
      * @return string                                helper output
      */
-    public function render(Zend_Navigation_Container $container = null)
+    public function render(?Zend_Navigation_Container $container = null)
     {
         $dom = $this->getDomSitemap($container);
 

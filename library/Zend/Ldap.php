@@ -635,11 +635,11 @@ class Zend_Ldap
     }
 
     /**
-     * @param  array $attrs An array of names of desired attributes
+     * @param  ?array $attrs An array of names of desired attributes
      * @return array An array of the attributes representing the account
      * @throws Zend_Ldap_Exception
      */
-    protected function _getAccount($acctname, array $attrs = null)
+    protected function _getAccount($acctname, ?array $attrs = null)
     {
         $baseDn = $this->getBaseDn();
         if (!$baseDn) {

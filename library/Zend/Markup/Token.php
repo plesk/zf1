@@ -93,7 +93,7 @@ class Zend_Markup_Token
      * @param  string $type
      * @param  string $name
      * @param  array $attributes
-     * @param  Zend_Markup_Token $parent
+     * @param  ?Zend_Markup_Token $parent
      * @return void
      */
     public function __construct(
@@ -101,7 +101,7 @@ class Zend_Markup_Token
         $type,
         $name = '',
         array $attributes = array(),
-        Zend_Markup_Token $parent = null
+        ?Zend_Markup_Token $parent = null
     ) {
         $this->_tag        = $tag;
         $this->_type       = $type;

@@ -127,13 +127,13 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
     /**
      * __construct() - Sets configuration options
      *
-     * @param  Zend_Db_Adapter_Abstract $zendDb If null, default database adapter assumed
-     * @param  string                   $tableName
-     * @param  string                   $identityColumn
-     * @param  string                   $credentialColumn
-     * @param  string                   $credentialTreatment
+     * @param  ?Zend_Db_Adapter_Abstract $zendDb If null, default database adapter assumed
+     * @param  string                    $tableName
+     * @param  string                    $identityColumn
+     * @param  string                    $credentialColumn
+     * @param  string                    $credentialTreatment
      */
-    public function __construct(Zend_Db_Adapter_Abstract $zendDb = null, $tableName = null, $identityColumn = null,
+    public function __construct(?Zend_Db_Adapter_Abstract $zendDb = null, $tableName = null, $identityColumn = null,
                                 $credentialColumn = null, $credentialTreatment = null)
     {
         $this->_setDbAdapter($zendDb);
@@ -158,11 +158,11 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
     /**
      * _setDbAdapter() - set the database adapter to be used for quering
      *
-     * @param Zend_Db_Adapter_Abstract
+     * @param ?Zend_Db_Adapter_Abstract
      * @throws Zend_Auth_Adapter_Exception
      * @return Zend_Auth_Adapter_DbTable
      */
-    protected function _setDbAdapter(Zend_Db_Adapter_Abstract $zendDb = null)
+    protected function _setDbAdapter(?Zend_Db_Adapter_Abstract $zendDb = null)
     {
         $this->_zendDb = $zendDb;
 

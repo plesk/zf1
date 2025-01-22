@@ -298,7 +298,7 @@ $unfiltered = $element->getUnfilteredValue();
         <itemizedlist>
             <listitem>
                 <para>
-                    <methodname>addFilter($nameOfFilter, array $options = null)</methodname>
+                    <methodname>addFilter($nameOfFilter, ?array $options = null)</methodname>
                 </para>
             </listitem>
 
@@ -1049,7 +1049,7 @@ $fooBar  = $element->getDecorator('FooBar');
         <itemizedlist>
             <listitem>
                 <para>
-                    <methodname>addDecorator($nameOrDecorator, array $options = null)</methodname>
+                    <methodname>addDecorator($nameOrDecorator, ?array $options = null)</methodname>
                 </para>
             </listitem>
 
@@ -1456,7 +1456,7 @@ $element->class = 'text;
                 <itemizedlist>
                     <listitem>
                         <para>
-                            <methodname>setView(Zend_View_Interface $view = null)</methodname>
+                            <methodname>setView(?Zend_View_Interface $view = null)</methodname>
                         </para>
                     </listitem>
 
@@ -1487,7 +1487,7 @@ $element->class = 'text;
 
                     <listitem>
                         <para>
-                            <methodname>render(Zend_View_Interface $view = null)</methodname>
+                            <methodname>render(?Zend_View_Interface $view = null)</methodname>
                         </para>
                     </listitem>
                 </itemizedlist>

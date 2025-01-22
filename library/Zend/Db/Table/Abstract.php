@@ -1584,12 +1584,12 @@ abstract class Zend_Db_Table_Abstract
     /**
      * Get table gateway object from string
      *
-     * @param  string                 $tableName
-     * @param  Zend_Db_Table_Abstract $referenceTable
+     * @param  string                  $tableName
+     * @param  ?Zend_Db_Table_Abstract $referenceTable
      * @throws Zend_Db_Table_Row_Exception
      * @return Zend_Db_Table_Abstract
      */
-    public static function getTableFromString($tableName, Zend_Db_Table_Abstract $referenceTable = null)
+    public static function getTableFromString($tableName, ?Zend_Db_Table_Abstract $referenceTable = null)
     {
         if ($referenceTable instanceof Zend_Db_Table_Abstract) {
             $tableDefinition = $referenceTable->getDefinition();

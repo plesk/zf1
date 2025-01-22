@@ -69,11 +69,11 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
     /**
      * Constructor
      *
-     * @param  Zend_Registry $registry
+     * @param  ?Zend_Registry $registry
      * @param  string $key
      * @return void
      */
-    public function __construct(Zend_Registry $registry = null, $key = null)
+    public function __construct(?Zend_Registry $registry = null, $key = null)
     {
         if (null === $registry) {
             $registry = Zend_Registry::getInstance();

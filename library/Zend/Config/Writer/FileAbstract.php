@@ -76,11 +76,11 @@ class Zend_Config_Writer_FileAbstract extends Zend_Config_Writer
      * Write configuration to file.
      *
      * @param string $filename
-     * @param Zend_Config $config
+     * @param ?Zend_Config $config
      * @param bool $exclusiveLock
      * @return void
      */
-    public function write($filename = null, Zend_Config $config = null, $exclusiveLock = null)
+    public function write($filename = null, ?Zend_Config $config = null, $exclusiveLock = null)
     {
         if ($filename !== null) {
             $this->setFilename($filename);

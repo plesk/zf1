@@ -119,13 +119,13 @@ class Zend_Service_SqlAzure_Management_Client
 	 * @param string $subscriptionId Subscription ID
 	 * @param string $certificatePath Management certificate path (.PEM)
 	 * @param string $certificatePassphrase Management certificate passphrase
-     * @param Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
+     * @param ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
 	 */
 	public function __construct(
 		$subscriptionId,
 		$certificatePath,
 		$certificatePassphrase,
-		Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null
+		?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null
 	) {
 		$this->_subscriptionId = $subscriptionId;
 		$this->_certificatePath = $certificatePath;
@@ -271,11 +271,11 @@ class Zend_Service_SqlAzure_Management_Client
 	/** 
 	 * Parse result from Zend_Http_Response
 	 *
-	 * @param Zend_Http_Response $response Response from HTTP call
+	 * @param ?Zend_Http_Response $response Response from HTTP call
 	 * @return object
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	protected function _parseResponse(Zend_Http_Response $response = null)
+	protected function _parseResponse(?Zend_Http_Response $response = null)
 	{
 		if (is_null($response)) {
 			require_once 'Zend/Service/SqlAzure/Exception.php';

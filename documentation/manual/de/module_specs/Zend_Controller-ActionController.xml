@@ -369,8 +369,8 @@ applicationOrModule/
             </para>
 
             <programlisting language="php"><![CDATA[
-string render(string $action = null,
-              string $name = null,
+string render(?string $action = null,
+              ?string $name = null,
               bool $noController = false);
 ]]></programlisting>
 

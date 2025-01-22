@@ -77,7 +77,7 @@ Zend_Controller_Front::run('/path/to/controllers');
 final protected function _forward($action,
                                   $controller = null,
                                   $module = null,
-                                  array $params = null);
+                                  ?array $params = null);
 ]]></programlisting>
 
                 <para>

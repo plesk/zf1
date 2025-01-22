@@ -175,11 +175,11 @@ class Zend_Controller_Action_Helper_ViewRenderer extends Zend_Controller_Action_
      *
      * Optionally set view object and options.
      *
-     * @param  Zend_View_Interface $view
-     * @param  array               $options
+     * @param  ?Zend_View_Interface $view
+     * @param  array                $options
      * @return void
      */
-    public function __construct(Zend_View_Interface $view = null, array $options = array())
+    public function __construct(?Zend_View_Interface $view = null, array $options = array())
     {
         if (null !== $view) {
             $this->setView($view);

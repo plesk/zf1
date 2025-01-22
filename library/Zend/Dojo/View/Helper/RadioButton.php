@@ -53,7 +53,7 @@ class Zend_Dojo_View_Helper_RadioButton extends Zend_Dojo_View_Helper_Dijit
      * @param  string $value
      * @param  array $params  Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
-     * @param  array $options Array of radio options
+     * @param  ?array $options Array of radio options
      * @param  string $listsep String with which to separate options
      * @return string
      */
@@ -62,7 +62,7 @@ class Zend_Dojo_View_Helper_RadioButton extends Zend_Dojo_View_Helper_Dijit
         $value = null,
         array $params = array(),
         array $attribs = array(),
-        array $options = null,
+        ?array $options = null,
         $listsep = "<br />\n"
     ) {
         $attribs['name'] = $id;

@@ -609,11 +609,11 @@ class Zend_Captcha_Image extends Zend_Captcha_Word
     /**
      * Display the captcha
      *
-     * @param Zend_View_Interface $view
+     * @param ?Zend_View_Interface $view
      * @param mixed $element
      * @return string
      */
-    public function render(Zend_View_Interface $view = null, $element = null)
+    public function render(?Zend_View_Interface $view = null, $element = null)
     {
         $endTag = ' />';
         if (($view instanceof Zend_View_Abstract) && !$view->doctype()->isXhtml()) {

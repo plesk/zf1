@@ -31,7 +31,7 @@
 class My_View_Helper_Navigation_Menu
     extends Zend_View_Helper_Navigation_HelperAbstract
 {
-    public function menu(Zend_Navigation_Container $container = null)
+    public function menu(?Zend_Navigation_Container $container = null)
     {
         if (null !== $container) {
             $this->setContainer($container);
@@ -40,7 +40,7 @@ class My_View_Helper_Navigation_Menu
         return $this;
     }
 
-    public function render(Zend_Navigation_Container $container = null)
+    public function render(?Zend_Navigation_Container $container = null)
     {
         return '<nav>Example</nav>';
     }

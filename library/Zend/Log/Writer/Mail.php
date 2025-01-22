@@ -120,10 +120,10 @@ class Zend_Log_Writer_Mail extends Zend_Log_Writer_Abstract
      * $this->_layout->events will be set for use in the layout template.
      *
      * @param  Zend_Mail $mail Mail instance
-     * @param  Zend_Layout $layout Layout instance; optional
+     * @param  ?Zend_Layout $layout Layout instance; optional
      * @return void
      */
-    public function __construct(Zend_Mail $mail, Zend_Layout $layout = null)
+    public function __construct(Zend_Mail $mail, ?Zend_Layout $layout = null)
     {
         $this->_mail = $mail;
         if (null !== $layout) {

@@ -281,13 +281,13 @@ class Zend_Service_Delicious
      *
      * If no date or url is given, most recent date will be used
      *
-     * @param  string    $tag Optional filtering by tag
-     * @param  Zend_Date $dt  Optional filtering by date
-     * @param  string    $url Optional filtering by url
+     * @param  string     $tag Optional filtering by tag
+     * @param  ?Zend_Date $dt  Optional filtering by date
+     * @param  string     $url Optional filtering by url
      * @throws Zend_Service_Delicious_Exception
      * @return Zend_Service_Delicious_PostList
      */
-    public function getPosts($tag = null, Zend_Date $dt = null, $url = null)
+    public function getPosts($tag = null, ?Zend_Date $dt = null, $url = null)
     {
         $parms = array();
         if ($tag) {

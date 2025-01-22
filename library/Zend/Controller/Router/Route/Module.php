@@ -111,14 +111,14 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
     /**
      * Constructor
      *
-     * @param array                                $defaults   Defaults for map variables with keys as variable names
-     * @param Zend_Controller_Dispatcher_Interface $dispatcher Dispatcher object
-     * @param Zend_Controller_Request_Abstract     $request    Request object
+     * @param array                                 $defaults   Defaults for map variables with keys as variable names
+     * @param ?Zend_Controller_Dispatcher_Interface $dispatcher Dispatcher object
+     * @param ?Zend_Controller_Request_Abstract     $request    Request object
      */
     public function __construct(
         array $defaults = array(),
-        Zend_Controller_Dispatcher_Interface $dispatcher = null,
-        Zend_Controller_Request_Abstract $request = null
+        ?Zend_Controller_Dispatcher_Interface $dispatcher = null,
+        ?Zend_Controller_Request_Abstract $request = null
     )
     {
         $this->_defaults = $defaults;

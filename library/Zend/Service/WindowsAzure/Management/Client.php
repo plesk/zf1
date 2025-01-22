@@ -158,13 +158,13 @@ class Zend_Service_WindowsAzure_Management_Client
 	 * @param string $subscriptionId Subscription ID
 	 * @param string $certificatePath Management certificate path (.PEM)
 	 * @param string $certificatePassphrase Management certificate passphrase
-     * @param Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
+     * @param ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
 	 */
 	public function __construct(
 		$subscriptionId,
 		$certificatePath,
 		$certificatePassphrase,
-		Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null
+		?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null
 	) {
 		$this->_subscriptionId = $subscriptionId;
 		$this->_certificatePath = $certificatePath;
@@ -310,11 +310,11 @@ class Zend_Service_WindowsAzure_Management_Client
 	/** 
 	 * Parse result from Zend_Http_Response
 	 *
-	 * @param Zend_Http_Response $response Response from HTTP call
+	 * @param ?Zend_Http_Response $response Response from HTTP call
 	 * @return object
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	protected function _parseResponse(Zend_Http_Response $response = null)
+	protected function _parseResponse(?Zend_Http_Response $response = null)
 	{
 		if (is_null($response)) {
 			require_once 'Zend/Service/WindowsAzure/Exception.php';
@@ -535,10 +535,10 @@ class Zend_Service_WindowsAzure_Management_Client
 	 * Creates a new Zend_Service_WindowsAzure_Storage_Blob instance for the current account
 	 *
 	 * @param string $serviceName the service name to create a storage client for.
-	 * @param Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
+	 * @param ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
 	 * @return Zend_Service_WindowsAzure_Storage_Blob
 	 */
-	public function createBlobClientForService($serviceName, Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
+	public function createBlobClientForService($serviceName, ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
 	{
 		if ($serviceName == '' || is_null($serviceName)) {
     		throw new Zend_Service_WindowsAzure_Management_Exception('Service name should be specified.');
@@ -561,10 +561,10 @@ class Zend_Service_WindowsAzure_Management_Client
 	 * Creates a new Zend_Service_WindowsAzure_Storage_Table instance for the current account
 	 *
 	 * @param string $serviceName the service name to create a storage client for.
-	 * @param Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
+	 * @param ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
 	 * @return Zend_Service_WindowsAzure_Storage_Table
 	 */
-	public function createTableClientForService($serviceName, Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
+	public function createTableClientForService($serviceName, ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
 	{
 		if ($serviceName == '' || is_null($serviceName)) {
 			require_once 'Zend/Service/WindowsAzure/Management/Exception.php';
@@ -586,10 +586,10 @@ class Zend_Service_WindowsAzure_Management_Client
 	 * Creates a new Zend_Service_WindowsAzure_Storage_Queue instance for the current account
 	 *
 	 * @param string $serviceName the service name to create a storage client for.
-	 * @param Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
+	 * @param ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy Retry policy to use when making requests
 	 * @return Zend_Service_WindowsAzure_Storage_Queue
 	 */
-	public function createQueueClientForService($serviceName, Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
+	public function createQueueClientForService($serviceName, ?Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract $retryPolicy = null)
 	{
 		if ($serviceName == '' || is_null($serviceName)) {
 			require_once 'Zend/Service/WindowsAzure/Management/Exception.php';

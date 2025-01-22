@@ -73,7 +73,7 @@ Zend_Controller_Front::run('/chemin/vers/controleurs');
 final protected function _forward($action,
                                   $controller = null,
                                   $module = null,
-                                  array $params = null);
+                                  ?array $params = null);
 ]]></programlisting>
                 <para>
                     <varname>$action</varname> est toujours obligatoire ; si aucun contrôleur n'est

@@ -860,11 +860,11 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * Render form element
      * Checks for decorator interface to prevent errors
      *
-     * @param  Zend_View_Interface $view
+     * @param  ?Zend_View_Interface $view
      * @return string
      * @throws Zend_Form_Element_Exception
      */
-    public function render(Zend_View_Interface $view = null)
+    public function render(?Zend_View_Interface $view = null)
     {
         $marker = false;
         foreach ($this->getDecorators() as $decorator) {

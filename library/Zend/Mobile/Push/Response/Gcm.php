@@ -83,11 +83,11 @@ class Zend_Mobile_Push_Response_Gcm
      * Constructor
      *
      * @param string $responseString JSON encoded response
-     * @param Zend_Mobile_Push_Message_Gcm $message
+     * @param ?Zend_Mobile_Push_Message_Gcm $message
      * @return Zend_Mobile_Push_Response_Gcm
      * @throws Zend_Mobile_Push_Exception_ServerUnavailable
      */
-    public function __construct($responseString = null, Zend_Mobile_Push_Message_Gcm $message = null)
+    public function __construct($responseString = null, ?Zend_Mobile_Push_Message_Gcm $message = null)
     {
         if ($responseString) {
             if (!$response = json_decode($responseString, true)) {

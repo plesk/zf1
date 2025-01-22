@@ -169,7 +169,7 @@ echo $cookie;
                 </listitem>
                 <listitem>
                     <para>
-                    <code>boolean isExpired(int $time = null)</code>: Check whether the cookie is expired or not.
+                    <code>boolean isExpired(?int $time = null)</code>: Check whether the cookie is expired or not.
                     If the cookie has no expiration time, will always return true. If $time is provided, it will
                     override the current time stamp as the time to check the cookie against.
                     </para>
