@@ -68,9 +68,9 @@ class Zend_Service_WindowsAzure_Storage_Batch
     /**
      * Creates a new Zend_Service_WindowsAzure_Storage_Batch
      * 
-     * @param Zend_Service_WindowsAzure_Storage_BatchStorageAbstract $storageClient Storage client the batch is defined on
+     * @param ?Zend_Service_WindowsAzure_Storage_BatchStorageAbstract $storageClient Storage client the batch is defined on
      */
-    public function __construct(Zend_Service_WindowsAzure_Storage_BatchStorageAbstract $storageClient = null, $baseUrl = '')
+    public function __construct(?Zend_Service_WindowsAzure_Storage_BatchStorageAbstract $storageClient = null, $baseUrl = '')
     {
         $this->_storageClient = $storageClient;
         $this->_baseUrl       = $baseUrl;

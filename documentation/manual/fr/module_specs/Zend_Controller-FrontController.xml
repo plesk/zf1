@@ -176,8 +176,8 @@ $front->addControllerDirectory('../modules/foo/controllers', 'foo');
             <title>dispatch()</title>
 
             <para>
-                <code>dispatch(Zend_Controller_Request_Abstract $request = null,
-                Zend_Controller_Response_Abstract $response = null)</code> fait le gros travail du
+                <code>dispatch(?Zend_Controller_Request_Abstract $request = null,
+                ?Zend_Controller_Response_Abstract $response = null)</code> fait le gros travail du
                 contrôleur frontal. Il peut facultativement prendre un
                 <link linkend="zend.controller.request">objet de requête</link>et/ou un
                 <link linkend="zend.controller.response">objet de réponse</link>, permettant ainsi

@@ -106,12 +106,12 @@ class Zend_OpenId_Consumer
      * Enables or disables future association with server based on
      * Diffie-Hellman key agreement.
      *
-     * @param Zend_OpenId_Consumer_Storage $storage implementation of custom
+     * @param ?Zend_OpenId_Consumer_Storage $storage implementation of custom
      *  storage object
      * @param bool $dumbMode Enables or disables consumer to use association
      *  with server based on Diffie-Hellman key agreement
      */
-    public function __construct(Zend_OpenId_Consumer_Storage $storage = null,
+    public function __construct(?Zend_OpenId_Consumer_Storage $storage = null,
                                 $dumbMode = false)
     {
         if ($storage === null) {
@@ -134,12 +134,12 @@ class Zend_OpenId_Consumer
      * @param string $returnTo URL to redirect response from server to
      * @param string $root HTTP URL to identify consumer on server
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response an optional response
+     * @param ?Zend_Controller_Response_Abstract $response an optional response
      *  object to perform HTTP or HTML form redirection
      * @return bool
      */
     public function login($id, $returnTo = null, $root = null, $extensions = null,
-                          Zend_Controller_Response_Abstract $response = null)
+                          ?Zend_Controller_Response_Abstract $response = null)
     {
         return $this->_checkId(
             false,
@@ -161,12 +161,12 @@ class Zend_OpenId_Consumer
      * @param string $returnTo HTTP URL to redirect response from server to
      * @param string $root HTTP URL to identify consumer on server
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response an optional response
+     * @param ?Zend_Controller_Response_Abstract $response an optional response
      *  object to perform HTTP or HTML form redirection
      * @return bool
      */
     public function check($id, $returnTo=null, $root=null, $extensions = null,
-                          Zend_Controller_Response_Abstract $response = null)
+                          ?Zend_Controller_Response_Abstract $response = null)
 
     {
         return $this->_checkId(
@@ -849,12 +849,12 @@ class Zend_OpenId_Consumer
      * @param string $returnTo HTTP URL to redirect response from server to
      * @param string $root HTTP URL to identify consumer on server
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response an optional response
+     * @param ?Zend_Controller_Response_Abstract $response an optional response
      *  object to perform HTTP or HTML form redirection
      * @return bool
      */
     protected function _checkId($immediate, $id, $returnTo=null, $root=null,
-        $extensions=null, Zend_Controller_Response_Abstract $response = null)
+        $extensions=null, ?Zend_Controller_Response_Abstract $response = null)
     {
         $this->_setError('');
 

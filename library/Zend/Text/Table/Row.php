@@ -46,11 +46,11 @@ class Zend_Text_Table_Row
     /**
      * Create a new column and append it to the row
      *
-     * @param  string $content
-     * @param  array  $options
+     * @param  string  $content
+     * @param  ?array  $options
      * @return Zend_Text_Table_Row
      */
-    public function createColumn($content, array $options = null)
+    public function createColumn($content, ?array $options = null)
     {
         $align    = null;
         $colSpan  = null;

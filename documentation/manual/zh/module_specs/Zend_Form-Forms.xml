@@ -688,17 +688,17 @@ $form->setDefaultDisplayGroupClass('My_DisplayGroup');
 
                 <listitem><para>Rendering:</para>
                     <itemizedlist>
-                        <listitem><para><code>setView(Zend_View_Interface $view = null)</code></para></listitem>
+                        <listitem><para><code>setView(?Zend_View_Interface $view = null)</code></para></listitem>
 
                         <listitem><para><code>getView()</code></para></listitem>
 
-                        <listitem><para><code>render(Zend_View_Interface $view = null)</code></para></listitem>
+                        <listitem><para><code>render(?Zend_View_Interface $view = null)</code></para></listitem>
                     </itemizedlist>
                 </listitem>
 
                 <listitem><para>I18n:</para>
                     <itemizedlist>
-                        <listitem><para><code>setTranslator(Zend_Translate_Adapter $translator = null)</code></para></listitem>
+                        <listitem><para><code>setTranslator(?Zend_Translate_Adapter $translator = null)</code></para></listitem>
 
                         <listitem><para><code>getTranslator()</code></para></listitem>
 
@@ -1321,7 +1321,7 @@ $messages = $form->getMessages('username');
 
             <listitem><para> 解析：</para>
                 <itemizedlist>
-                    <listitem><para><code>setView(Zend_View_Interface $view = null)</code></para></listitem>
+                    <listitem><para><code>setView(?Zend_View_Interface $view = null)</code></para></listitem>
 
                     <listitem><para><code>getView()</code></para></listitem>
 
@@ -1339,13 +1339,13 @@ $messages = $form->getMessages('username');
 
                     <listitem><para><code>clearDecorators()</code></para></listitem>
 
-                    <listitem><para><code>render(Zend_View_Interface $view = null)</code></para></listitem>
+                    <listitem><para><code>render(?Zend_View_Interface $view = null)</code></para></listitem>
                 </itemizedlist>
             </listitem>
 
             <listitem><para>I18n:</para>
                 <itemizedlist>
-                    <listitem><para><code>setTranslator(Zend_Translate_Adapter $translator = null)</code></para></listitem>
+                    <listitem><para><code>setTranslator(?Zend_Translate_Adapter $translator = null)</code></para></listitem>
 
                     <listitem><para><code>getTranslator()</code></para></listitem>
 

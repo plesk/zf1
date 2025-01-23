@@ -54,10 +54,10 @@ class Zend_View_Helper_FormErrors extends Zend_View_Helper_FormElement
      * Render form errors
      *
      * @param  string|array $errors Error(s) to render
-     * @param  array $options
+     * @param  ?array $options
      * @return string
      */
-    public function formErrors($errors, array $options = null)
+    public function formErrors($errors, ?array $options = null)
     {
         $escape = true;
         if (isset($options['escape'])) {

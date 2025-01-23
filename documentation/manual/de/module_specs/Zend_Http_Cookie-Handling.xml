@@ -267,7 +267,7 @@ echo $cookie;
 
                 <listitem>
                     <para>
-                        <methodname>isExpired(int $time = null)</methodname>: Überprüft, ob der
+                        <methodname>isExpired(?int $time = null)</methodname>: Überprüft, ob der
                         Cookie bereits abgelaufen ist. Wenn der Cookie keine Ablaufzeit besitzt,
                         wird diese Methode immer <constant>FALSE</constant> zurückgegeben. Wenn
                         $time übergeben wurde, wird der aktuelle Zeitstempel überschrieben und der

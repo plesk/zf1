@@ -54,7 +54,7 @@ $view->userAgent($userAgent);
                     <methodsynopsis>
                         <methodname>userAgent</methodname>
                         <methodparam>
-                            <funcparams>Zend_Http_UserAgent $userAgent = null</funcparams>
+                            <funcparams>?Zend_Http_UserAgent $userAgent = null</funcparams>
                         </methodparam>
                     </methodsynopsis>
                 </term>

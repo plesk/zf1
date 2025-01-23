@@ -43,10 +43,10 @@ class Zend_Controller_Action_Helper_Url extends Zend_Controller_Action_Helper_Ab
      * @param  string $action
      * @param  string $controller
      * @param  string $module
-     * @param  array  $params
+     * @param  ?array $params
      * @return string
      */
-    public function simple($action, $controller = null, $module = null, array $params = null)
+    public function simple($action, $controller = null, $module = null, ?array $params = null)
     {
         $request = $this->getRequest();
 
@@ -107,10 +107,10 @@ class Zend_Controller_Action_Helper_Url extends Zend_Controller_Action_Helper_Ab
      * @param  string $action
      * @param  string $controller
      * @param  string $module
-     * @param  array  $params
+     * @param  ?array $params
      * @return string
      */
-    public function direct($action, $controller = null, $module = null, array $params = null)
+    public function direct($action, $controller = null, $module = null, ?array $params = null)
     {
         return $this->simple($action, $controller, $module, $params);
     }

@@ -85,11 +85,11 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
      * unsubscription request. This should be the Hub Server confirming the
      * the request prior to taking action on it.
      *
-     * @param  array $httpGetData GET data if available and not in $_GET
+     * @param  ?array $httpGetData GET data if available and not in $_GET
      * @param  bool $sendResponseNow Whether to send response now or when asked
      * @return void
      */
-    public function handle(array $httpGetData = null, $sendResponseNow = false)
+    public function handle(?array $httpGetData = null, $sendResponseNow = false)
     {
         if ($httpGetData === null) {
             $httpGetData = $_GET;
@@ -230,11 +230,11 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
      * Check for a valid verify_token. By default attempts to compare values
      * with that sent from Hub, otherwise merely ascertains its existence.
      *
-     * @param  array $httpGetData
+     * @param  ?array $httpGetData
      * @param  bool $checkValue
      * @return bool
      */
-    protected function _hasValidVerifyToken(array $httpGetData = null, $checkValue = true)
+    protected function _hasValidVerifyToken(?array $httpGetData = null, $checkValue = true)
     {
         $verifyTokenKey = $this->_detectVerifyTokenKey($httpGetData);
         if (empty($verifyTokenKey)) {
@@ -264,7 +264,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
      * @param  null|array $httpGetData
      * @return false|string
      */
-    protected function _detectVerifyTokenKey(array $httpGetData = null)
+    protected function _detectVerifyTokenKey(?array $httpGetData = null)
     {
         /**
          * Available when sub keys encoding in Callback URL path

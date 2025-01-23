@@ -47,9 +47,9 @@ class Zend_Feed_Pubsubhubbub_Model_ModelAbstract
     /**
      * Constructor
      *
-     * @param  Zend_Db_Table_Abstract $tableGateway
+     * @param  ?Zend_Db_Table_Abstract $tableGateway
      */
-    public function __construct(Zend_Db_Table_Abstract $tableGateway = null)
+    public function __construct(?Zend_Db_Table_Abstract $tableGateway = null)
     {
         if ($tableGateway === null) {
             $parts = explode('_', get_class($this));

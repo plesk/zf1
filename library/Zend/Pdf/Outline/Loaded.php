@@ -301,14 +301,14 @@ class Zend_Pdf_Outline_Loaded extends Zend_Pdf_Outline
      * Create PDF outline object using specified dictionary
      *
      * @internal
-     * @param Zend_Pdf_Element $dictionary (It's actually Dictionary or Dictionary Object or Reference to a Dictionary Object)
-     * @param Zend_Pdf_Action  $parentAction
-     * @param SplObjectStorage $processedOutlines  List of already processed Outline dictionaries,
+     * @param Zend_Pdf_Element  $dictionary (It's actually Dictionary or Dictionary Object or Reference to a Dictionary Object)
+     * @param Zend_Pdf_Action   $parentAction
+     * @param ?SplObjectStorage $processedOutlines  List of already processed Outline dictionaries,
      *                                             used to avoid cyclic references
      * @return Zend_Pdf_Action
      * @throws Zend_Pdf_Exception
      */
-    public function __construct(Zend_Pdf_Element $dictionary, SplObjectStorage $processedDictionaries = null)
+    public function __construct(Zend_Pdf_Element $dictionary, ?SplObjectStorage $processedDictionaries = null)
     {
         if ($dictionary->getType() != Zend_Pdf_Element::TYPE_DICTIONARY) {
             require_once 'Zend/Pdf/Exception.php';
@@ -364,16 +364,16 @@ class Zend_Pdf_Outline_Loaded extends Zend_Pdf_Outline
      * @param Zend_Pdf_ElementFactory    $factory object factory for newly created indirect objects
      * @param boolean $updateNavigation  Update navigation flag
      * @param Zend_Pdf_Element $parent   Parent outline dictionary reference
-     * @param Zend_Pdf_Element $prev     Previous outline dictionary reference
-     * @param SplObjectStorage $processedOutlines  List of already processed outlines
+     * @param ?Zend_Pdf_Element $prev     Previous outline dictionary reference
+     * @param ?SplObjectStorage $processedOutlines  List of already processed outlines
      * @return Zend_Pdf_Element
      * @throws Zend_Pdf_Exception
      */
     public function dumpOutline(Zend_Pdf_ElementFactory_Interface $factory,
                                                                   $updateNavigation,
                                                  Zend_Pdf_Element $parent,
-                                                 Zend_Pdf_Element $prev = null,
-                                                 SplObjectStorage $processedOutlines = null)
+                                                 ?Zend_Pdf_Element $prev = null,
+                                                 ?SplObjectStorage $processedOutlines = null)
     {
         if ($processedOutlines === null) {
             $processedOutlines = new SplObjectStorage();

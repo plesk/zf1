@@ -357,8 +357,8 @@ applicationOrModule/
                 <methodname>render()</methodname> tiene la siguiente firma: </para>
 
             <programlisting language="php"><![CDATA[
-string render(string $action = null,
-              string $name = null,
+string render(?string $action = null,
+              ?string $name = null,
               bool $noController = false);
 ]]></programlisting>
 
@@ -440,7 +440,7 @@ class MyController extends Zend_Controller_Action
             <listitem>
                 <para>
                     <methodname>_forward($action, $controller = null, $module =
-                        null, array $params = null)</methodname> : realiza otra
+                        null, ?array $params = null)</methodname> : realiza otra
                     acción. Si es llamado en
                         <methodname>preDispatch()</methodname> , la acción
                     actualmente requerida se saltará en favor de la nueva. De lo

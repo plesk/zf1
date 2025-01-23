@@ -157,7 +157,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
      *
      * Implements {@link Zend_View_Helper_Navigation_Interface::setContainer()}.
      *
-     * @param  Zend_Navigation_Container $container        [optional] container
+     * @param  ?Zend_Navigation_Container $container       [optional] container
      *                                                     to operate on.
      *                                                     Default is null,
      *                                                     meaning container
@@ -165,7 +165,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
      * @return Zend_View_Helper_Navigation_HelperAbstract  fluent interface,
      *                                                     returns self
      */
-    public function setContainer(Zend_Navigation_Container $container = null)
+    public function setContainer(?Zend_Navigation_Container $container = null)
     {
         $this->_container = $container;
         return $this;
@@ -438,7 +438,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
      *
      * Implements {@link Zend_View_Helper_Navigation_Helper::setAcl()}.
      *
-     * @param  Zend_Acl $acl                               [optional] ACL object.
+     * @param  ?Zend_Acl $acl                              [optional] ACL object.
      *                                                     Default is null.
      * @return Zend_View_Helper_Navigation_HelperAbstract  fluent interface,
      *                                                     returns self
@@ -939,11 +939,11 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
     /**
      * Sets default ACL to use if another ACL is not explicitly set
      *
-     * @param  Zend_Acl $acl  [optional] ACL object. Default is null, which
+     * @param  ?Zend_Acl $acl [optional] ACL object. Default is null, which
      *                        sets no ACL object.
      * @return void
      */
-    public static function setDefaultAcl(Zend_Acl $acl = null)
+    public static function setDefaultAcl(?Zend_Acl $acl = null)
     {
         self::$_defaultAcl = $acl;
     }

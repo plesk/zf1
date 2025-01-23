@@ -223,7 +223,7 @@ $unfiltered = $element->getUnfilteredValue();
 
         <itemizedlist>
             <listitem><para>
-                <code>addFilter($nameOfFilter, array $options = null)</code>
+                <code>addFilter($nameOfFilter, ?array $options = null)</code>
             </para></listitem>
 
             <listitem><para>
@@ -517,7 +517,7 @@ $messages = $element->getMessages();
             </para></listitem>
 
             <listitem><para>
-                <code>addValidator($nameOrValidator, $breakChainOnFailure = false, array $options = null)</code>
+                <code>addValidator($nameOrValidator, $breakChainOnFailure = false, ?array $options = null)</code>
             </para></listitem>
 
             <listitem><para>
@@ -726,7 +726,7 @@ $fooBar  = $element->getDecorator('FooBar');
 
         <itemizedlist>
             <listitem><para>
-                <code>addDecorator($nameOrDecorator, array $options = null)</code>
+                <code>addDecorator($nameOrDecorator, ?array $options = null)</code>
             </para></listitem>
 
             <listitem><para>
@@ -857,7 +857,7 @@ $element->class = 'text;
 
             <listitem><para>I18n:</para>
                 <itemizedlist>
-                    <listitem><para><code>setTranslator(Zend_Translate_Adapter $translator = null)</code></para></listitem>
+                    <listitem><para><code>setTranslator(?Zend_Translate_Adapter $translator = null)</code></para></listitem>
                     <listitem><para><code>getTranslator()</code></para></listitem>
                     <listitem><para><code>setDisableTranslator($flag)</code></para></listitem>
                     <listitem><para><code>translatorIsDisabled()</code></para></listitem>
@@ -931,7 +931,7 @@ $element->class = 'text;
 
             <listitem><para> 解析：</para>
                 <itemizedlist>
-                    <listitem><para><code>setView(Zend_View_Interface $view = null)</code></para></listitem>
+                    <listitem><para><code>setView(?Zend_View_Interface $view = null)</code></para></listitem>
                     <listitem><para><code>getView()</code></para></listitem>
                     <listitem><para><code>addDecorator($decorator, $options = null)</code></para></listitem>
                     <listitem><para><code>addDecorators(array $decorators)</code></para></listitem>
@@ -940,7 +940,7 @@ $element->class = 'text;
                     <listitem><para><code>getDecorators()</code></para></listitem>
                     <listitem><para><code>removeDecorator($name)</code></para></listitem>
                     <listitem><para><code>clearDecorators()</code></para></listitem>
-                    <listitem><para><code>render(Zend_View_Interface $view = null)</code></para></listitem>
+                    <listitem><para><code>render(?Zend_View_Interface $view = null)</code></para></listitem>
                 </itemizedlist>
             </listitem>
         </itemizedlist>

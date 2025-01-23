@@ -164,14 +164,14 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
      * to a corresponding atomic parts. These parts are assigned
      * a position which is later used for matching and preparing values.
      *
-     * @param string         $route      Map used to match with later submitted URL path
-     * @param array          $defaults   Defaults for map variables with keys as variable names
-     * @param array          $reqs       Regular expression requirements for variables (keys as variable names)
-     * @param Zend_Translate $translator Translator to use for this instance
-     * @param mixed|null     $locale
+     * @param string          $route      Map used to match with later submitted URL path
+     * @param array           $defaults   Defaults for map variables with keys as variable names
+     * @param array           $reqs       Regular expression requirements for variables (keys as variable names)
+     * @param ?Zend_Translate $translator Translator to use for this instance
+     * @param mixed|null      $locale
      */
     public function __construct(
-        $route, $defaults = array(), $reqs = array(), Zend_Translate $translator = null, $locale = null
+        $route, $defaults = array(), $reqs = array(), ?Zend_Translate $translator = null, $locale = null
     )
     {
         $route               = trim($route, $this->_urlDelimiter);
@@ -484,10 +484,10 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
     /**
      * Set a default translator
      *
-     * @param  Zend_Translate $translator
+     * @param  ?Zend_Translate $translator
      * @return void
      */
-    public static function setDefaultTranslator(Zend_Translate $translator = null)
+    public static function setDefaultTranslator(?Zend_Translate $translator = null)
     {
         self::$_defaultTranslator = $translator;
     }

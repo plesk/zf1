@@ -341,8 +341,8 @@ applicationOrModule/
             </para>
 
             <programlisting language="php"><![CDATA[
-string render(string $action = null,
-              string $name = null,
+string render(?string $action = null,
+              ?string $name = null,
               bool $noController = false);
 ]]></programlisting>
 
@@ -427,7 +427,7 @@ class MyController extends Zend_Controller_Action
             <listitem>
                 <para>
                     <code>_forward($action, $controller = null, $module = null,
-                    array $params = null)</code>: выполяет другое действие.
+                    ?array $params = null)</code>: выполяет другое действие.
                     Если был вызван в <code>preDispatch()</code>, то
                     запрошенноое в данный момент
                     действие будет пропущено в пользу нового. Иначе

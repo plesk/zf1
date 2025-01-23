@@ -94,10 +94,10 @@ class Zend_OpenId_Provider
      * @param string $trustUrl is an URL that shows a question if end-user
      *  trust to given consumer (by default it is the same URL with additional
      *  GET variable openid.action=trust)
-     * @param Zend_OpenId_Provider_User $user is an object for communication
+     * @param ?Zend_OpenId_Provider_User $user is an object for communication
      *  with User-Agent and store information about logged-in user (it is a
      *  Zend_OpenId_Provider_User_Session object by default)
-     * @param Zend_OpenId_Provider_Storage $storage is an object for keeping
+     * @param ?Zend_OpenId_Provider_Storage $storage is an object for keeping
      *  persistent database (it is a Zend_OpenId_Provider_Storage_File object
      *  by default)
      * @param integer $sessionTtl is a default time to live for association
@@ -106,8 +106,8 @@ class Zend_OpenId_Provider
      */
     public function __construct($loginUrl = null,
                                 $trustUrl = null,
-                                Zend_OpenId_Provider_User $user = null,
-                                Zend_OpenId_Provider_Storage $storage = null,
+                                ?Zend_OpenId_Provider_User $user = null,
+                                ?Zend_OpenId_Provider_Storage $storage = null,
                                 $sessionTtl = 3600)
     {
         if ($loginUrl === null) {
@@ -329,12 +329,12 @@ class Zend_OpenId_Provider
      *  or set to null, then $_GET or $_POST superglobal variable is used
      *  according to REQUEST_METHOD.
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response an optional response
+     * @param ?Zend_Controller_Response_Abstract $response an optional response
      *  object to perform HTTP or HTML form redirection
      * @return mixed
      */
     public function handle($params=null, $extensions=null,
-                           Zend_Controller_Response_Abstract $response = null)
+                           ?Zend_Controller_Response_Abstract $response = null)
     {
         if ($params === null) {
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -508,11 +508,11 @@ class Zend_OpenId_Provider
      * @param array $params GET or POST request variables
      * @param bool $immediate enables or disables interaction with user
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response
+     * @param ?Zend_Controller_Response_Abstract $response
      * @return array
      */
     protected function _checkId($version, $params, $immediate, $extensions=null,
-        Zend_Controller_Response_Abstract $response = null)
+        ?Zend_Controller_Response_Abstract $response = null)
     {
         $ret = array();
 
@@ -638,12 +638,12 @@ class Zend_OpenId_Provider
      *
      * @param array $params GET or POST request variables
      * @param mixed $extensions extension object or array of extensions objects
-     * @param Zend_Controller_Response_Abstract $response an optional response
+     * @param ?Zend_Controller_Response_Abstract $response an optional response
      *  object to perform HTTP or HTML form redirection
      * @return bool
      */
     public function respondToConsumer($params, $extensions=null,
-                           Zend_Controller_Response_Abstract $response = null)
+                           ?Zend_Controller_Response_Abstract $response = null)
     {
         $version = 1.1;
         if (isset($params['openid_ns']) &&

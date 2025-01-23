@@ -48,7 +48,7 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
      * @param  Zend_Queue|null $queue
      * @return void
      */
-    public function __construct($options, Zend_Queue $queue = null)
+    public function __construct($options, ?Zend_Queue $queue = null)
     {
         parent::__construct($options, $queue);
 
@@ -151,7 +151,7 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
      * @param  Zend_Queue|null $queue
      * @return integer
      */
-    public function count(Zend_Queue $queue = null)
+    public function count(?Zend_Queue $queue = null)
     {
         if ($queue !== null) {
             require_once 'Zend/Queue/Exception.php';
@@ -169,11 +169,11 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
      * Send a message to the queue
      *
      * @param  array | ZendAPI_job $message Message to send to the active queue
-     * @param  Zend_Queue $queue     Not supported
+     * @param  ?Zend_Queue $queue     Not supported
      * @return Zend_Queue_Message
      * @throws Zend_Queue_Exception
      */
-    public function send($message, Zend_Queue $queue = null)
+    public function send($message, ?Zend_Queue $queue = null)
     {
         if ($queue !== null) {
             require_once 'Zend/Queue/Exception.php';
@@ -211,13 +211,13 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
     /**
      * Get messages in the queue
      *
-     * @param  integer    $maxMessages  Maximum number of messages to return
-     * @param  integer    $timeout      Ignored
-     * @param  Zend_Queue $queue        Not supported
+     * @param  integer     $maxMessages  Maximum number of messages to return
+     * @param  integer     $timeout      Ignored
+     * @param  ?Zend_Queue $queue        Not supported
      * @throws Zend_Queue_Exception
      * @return ArrayIterator
      */
-    public function receive($maxMessages = null, $timeout = null, Zend_Queue $queue = null)
+    public function receive($maxMessages = null, $timeout = null, ?Zend_Queue $queue = null)
     {
         if ($maxMessages === null) {
             $maxMessages = 1;

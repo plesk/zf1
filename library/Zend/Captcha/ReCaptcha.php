@@ -255,11 +255,11 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
     /**
      * Render captcha
      *
-     * @param  Zend_View_Interface $view
+     * @param  ?Zend_View_Interface $view
      * @param  mixed $element
      * @return string
      */
-    public function render(Zend_View_Interface $view = null, $element = null)
+    public function render(?Zend_View_Interface $view = null, $element = null)
     {
         $name = null;
         if ($element instanceof Zend_Form_Element) {

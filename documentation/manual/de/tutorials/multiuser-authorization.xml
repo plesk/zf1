@@ -186,8 +186,8 @@ class OwnerCanPublishBlogPostAssertion implements Zend_Acl_Assert_Interface
      * @return bool
      */
     public function assert(Zend_Acl $acl,
-                           Zend_Acl_Role_Interface $user = null,
-                           Zend_Acl_Resource_Interface $blogPost = null,
+                           ?Zend_Acl_Role_Interface $user = null,
+                           ?Zend_Acl_Resource_Interface $blogPost = null,
                            $privilege = null)
     {
         if (!$user instanceof Default_Model_User) {

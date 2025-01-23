@@ -291,10 +291,10 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
     /**
      * Executes a prepared statement.
      *
-     * @param array $params OPTIONAL Values to bind to parameter placeholders.
+     * @param ?array $params OPTIONAL Values to bind to parameter placeholders.
      * @return bool
      */
-    public function execute(array $params = null)
+    public function execute(?array $params = null)
     {
         /*
          * Simple case - no query profiler to manage.

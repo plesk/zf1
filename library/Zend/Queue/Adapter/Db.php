@@ -78,7 +78,7 @@ class Zend_Queue_Adapter_Db extends Zend_Queue_Adapter_AdapterAbstract
      * @param  Zend_Queue|null $queue
      * @return void
      */
-    public function __construct($options, Zend_Queue $queue = null)
+    public function __construct($options, ?Zend_Queue $queue = null)
     {
         parent::__construct($options, $queue);
 
@@ -284,11 +284,11 @@ class Zend_Queue_Adapter_Db extends Zend_Queue_Adapter_AdapterAbstract
     /**
      * Return the approximate number of messages in the queue
      *
-     * @param  Zend_Queue $queue
+     * @param  ?Zend_Queue $queue
      * @return integer
      * @throws Zend_Queue_Exception
      */
-    public function count(Zend_Queue $queue = null)
+    public function count(?Zend_Queue $queue = null)
     {
         if ($queue === null) {
             $queue = $this->_queue;
@@ -311,12 +311,12 @@ class Zend_Queue_Adapter_Db extends Zend_Queue_Adapter_AdapterAbstract
     /**
      * Send a message to the queue
      *
-     * @param  string     $message Message to send to the active queue
-     * @param  Zend_Queue $queue
+     * @param  string      $message Message to send to the active queue
+     * @param  ?Zend_Queue $queue
      * @return Zend_Queue_Message
      * @throws Zend_Queue_Exception - database error
      */
-    public function send($message, Zend_Queue $queue = null)
+    public function send($message, ?Zend_Queue $queue = null)
     {
         if ($this->_messageRow === null) {
             $this->_messageRow = $this->_messageTable->createRow();
@@ -368,13 +368,13 @@ class Zend_Queue_Adapter_Db extends Zend_Queue_Adapter_AdapterAbstract
     /**
      * Get messages in the queue
      *
-     * @param  integer    $maxMessages  Maximum number of messages to return
-     * @param  integer    $timeout      Visibility timeout for these messages
-     * @param  Zend_Queue $queue
+     * @param  integer     $maxMessages  Maximum number of messages to return
+     * @param  integer     $timeout      Visibility timeout for these messages
+     * @param  ?Zend_Queue $queue
      * @return Zend_Queue_Message_Iterator
      * @throws Zend_Queue_Exception - database error
      */
-    public function receive($maxMessages = null, $timeout = null, Zend_Queue $queue = null)
+    public function receive($maxMessages = null, $timeout = null, ?Zend_Queue $queue = null)
     {
         if ($maxMessages === null) {
             $maxMessages = 1;

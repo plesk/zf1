@@ -421,11 +421,11 @@ class Zend_OpenId
      *
      * @param string $url URL to redirect to
      * @param array $params additional variable/value pairs to send
-     * @param Zend_Controller_Response_Abstract $response
+     * @param ?Zend_Controller_Response_Abstract $response
      * @param string $method redirection method ('GET' or 'POST')
      */
     static public function redirect($url, $params = null,
-        Zend_Controller_Response_Abstract $response = null, $method = 'GET')
+        ?Zend_Controller_Response_Abstract $response = null, $method = 'GET')
     {
         $url = Zend_OpenId::absoluteUrl($url);
         $body = "";

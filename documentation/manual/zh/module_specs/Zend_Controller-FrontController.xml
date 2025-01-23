@@ -137,7 +137,7 @@ $front->addControllerDirectory('../modules/foo/controllers', 'foo');
             <title>dispatch()</title>
 
             <para>
-                <code>dispatch(Zend_Controller_Request_Abstract $request = null, Zend_Controller_Response_Abstract $response = null)</code>完成前端控制器最繁重的工作。该方法带有可选的参数<link linkend="zend.controller.request">请求对象</link>和/或<link linkend="zend.controller.response">响应对象</link>，允许开发人员为每一个传入定制的对象。
+                <code>dispatch(?Zend_Controller_Request_Abstract $request = null, ?Zend_Controller_Response_Abstract $response = null)</code>完成前端控制器最繁重的工作。该方法带有可选的参数<link linkend="zend.controller.request">请求对象</link>和/或<link linkend="zend.controller.response">响应对象</link>，允许开发人员为每一个传入定制的对象。
             </para>
 
             <para>

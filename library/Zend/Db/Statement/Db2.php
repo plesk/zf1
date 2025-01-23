@@ -187,11 +187,11 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
     /**
      * Executes a prepared statement.
      *
-     * @param array $params OPTIONAL Values to bind to parameter placeholders.
+     * @param ?array $params OPTIONAL Values to bind to parameter placeholders.
      * @return bool
      * @throws Zend_Db_Statement_Db2_Exception
      */
-    public function _execute(array $params = null)
+    public function _execute(?array $params = null)
     {
         if (!$this->_stmt) {
             return false;

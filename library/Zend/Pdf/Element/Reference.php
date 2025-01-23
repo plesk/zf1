@@ -84,11 +84,11 @@ class Zend_Pdf_Element_Reference extends Zend_Pdf_Element
      *
      * @param integer $objNum
      * @param integer $genNum
-     * @param Zend_Pdf_Element_Reference_Context $context
-     * @param Zend_Pdf_ElementFactory $factory
+     * @param ?Zend_Pdf_Element_Reference_Context $context
+     * @param ?Zend_Pdf_ElementFactory $factory
      * @throws Zend_Pdf_Exception
      */
-    public function __construct($objNum, $genNum = 0, Zend_Pdf_Element_Reference_Context $context = null, Zend_Pdf_ElementFactory $factory = null)
+    public function __construct($objNum, $genNum = 0, ?Zend_Pdf_Element_Reference_Context $context = null, ?Zend_Pdf_ElementFactory $factory = null)
     {
         if ( !(is_integer($objNum) && $objNum > 0) ) {
             require_once 'Zend/Pdf/Exception.php';

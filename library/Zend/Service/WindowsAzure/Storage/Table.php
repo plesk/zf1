@@ -294,11 +294,11 @@ class Zend_Service_WindowsAzure_Storage_Table
 	 * Insert entity into table
 	 * 
 	 * @param string                              $tableName   Table name
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to insert
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to insert
 	 * @return Zend_Service_WindowsAzure_Storage_TableEntity
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	public function insertEntity($tableName = '', Zend_Service_WindowsAzure_Storage_TableEntity $entity = null)
+	public function insertEntity($tableName = '', ?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null)
 	{
 		if ($tableName === '') {
 			require_once 'Zend/Service/WindowsAzure/Exception.php';
@@ -367,11 +367,11 @@ class Zend_Service_WindowsAzure_Storage_Table
 	 * Delete entity from table
 	 * 
 	 * @param string                              $tableName   Table name
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to delete
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to delete
 	 * @param boolean                             $verifyEtag  Verify etag of the entity (used for concurrency)
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	public function deleteEntity($tableName = '', Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
+	public function deleteEntity($tableName = '', ?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
 	{
 		if ($tableName === '') {
 			require_once 'Zend/Service/WindowsAzure/Exception.php';
@@ -645,11 +645,11 @@ class Zend_Service_WindowsAzure_Storage_Table
 	 * Update entity by replacing it
 	 * 
 	 * @param string                              $tableName   Table name
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
 	 * @param boolean                             $verifyEtag  Verify etag of the entity (used for concurrency)
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	public function updateEntity($tableName = '', Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
+	public function updateEntity($tableName = '', ?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
 	{
 	    return $this->_changeEntity(Zend_Http_Client::PUT, $tableName, $entity, $verifyEtag);
 	}
@@ -658,12 +658,12 @@ class Zend_Service_WindowsAzure_Storage_Table
 	 * Update entity by adding or updating properties
 	 * 
 	 * @param string                              $tableName   Table name
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
 	 * @param boolean                             $verifyEtag  Verify etag of the entity (used for concurrency)
 	 * @param array                               $properties  Properties to merge. All properties will be used when omitted.
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	public function mergeEntity($tableName = '', Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false, $properties = array())
+	public function mergeEntity($tableName = '', ?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false, $properties = array())
 	{
 		$mergeEntity = null;
 		if (is_array($properties) && count($properties) > 0) {
@@ -710,11 +710,11 @@ class Zend_Service_WindowsAzure_Storage_Table
 	 * 
 	 * @param string                              $httpVerb    HTTP verb to use (PUT = update, MERGE = merge)
 	 * @param string                              $tableName   Table name
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity      Entity to update
 	 * @param boolean                             $verifyEtag  Verify etag of the entity (used for concurrency)
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
-	protected function _changeEntity($httpVerb = Zend_Http_Client::PUT, $tableName = '', Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
+	protected function _changeEntity($httpVerb = Zend_Http_Client::PUT, $tableName = '', ?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null, $verifyEtag = false)
 	{
 		if ($tableName === '') {
 			require_once 'Zend/Service/WindowsAzure/Exception.php';
@@ -816,10 +816,10 @@ class Zend_Service_WindowsAzure_Storage_Table
 	/**
 	 * Generate Azure representation from entity (creates atompub markup from properties)
 	 * 
-	 * @param Zend_Service_WindowsAzure_Storage_TableEntity $entity
+	 * @param ?Zend_Service_WindowsAzure_Storage_TableEntity $entity
 	 * @return string
 	 */
-	protected function _generateAzureRepresentation(Zend_Service_WindowsAzure_Storage_TableEntity $entity = null)
+	protected function _generateAzureRepresentation(?Zend_Service_WindowsAzure_Storage_TableEntity $entity = null)
 	{
 		// Generate Azure representation from entity
 		$azureRepresentation = array();

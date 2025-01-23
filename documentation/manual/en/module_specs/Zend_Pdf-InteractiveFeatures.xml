@@ -886,7 +886,7 @@ printf("Actions in a tree: %d\n", $actionsCount++);
             </para>
 
             <para>
-                <methodname>setOpenAction(Zend_Pdf_Target $openAction = null)</methodname>
+                <methodname>setOpenAction(?Zend_Pdf_Target $openAction = null)</methodname>
                 method sets document open action or clean it if <varname>$openAction</varname>
                 is <constant>NULL</constant>.
             </para>

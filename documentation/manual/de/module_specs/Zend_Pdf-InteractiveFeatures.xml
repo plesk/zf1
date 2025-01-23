@@ -892,7 +892,7 @@ printf("Aktionen im Baum: %d\n", $actionsCount++);
             </para>
 
             <para>
-                Die <methodname>setOpenAction(Zend_Pdf_Target $openAction = null)</methodname>
+                Die <methodname>setOpenAction(?Zend_Pdf_Target $openAction = null)</methodname>
                 Methode setzt eine Dokument Öffnen Aktion oder löscht diese wenn
                 <varname>$openAction</varname> <constant>NULL</constant> ist.
             </para>

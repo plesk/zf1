@@ -158,10 +158,10 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
     /**
      * Render form element
      *
-     * @param  Zend_View_Interface $view
+     * @param  ?Zend_View_Interface $view
      * @return string
      */
-    public function render(Zend_View_Interface $view = null)
+    public function render(?Zend_View_Interface $view = null)
     {
         $captcha    = $this->getCaptcha();
         $captcha->setName($this->getFullyQualifiedName());

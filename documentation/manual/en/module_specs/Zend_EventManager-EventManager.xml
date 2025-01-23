@@ -50,7 +50,7 @@ class Foo
 {
     protected $events;
 
-    public function events(Zend_EventManager_EventCollection $events = null)
+    public function events(?Zend_EventManager_EventCollection $events = null)
     {
         if (null !== $events) {
             $this->events = $events;
@@ -344,7 +344,7 @@ $events->attach(array('foo', 'bar'), '*', $callback);
                     <methodsynopsis>
                         <methodname>setStaticConnections</methodname>
                         <methodparam>
-                            <funcparams>Zend_EventManager_StaticEventCollection $connections = null</funcparams>
+                            <funcparams>?Zend_EventManager_StaticEventCollection $connections = null</funcparams>
                         </methodparam>
                     </methodsynopsis>
                     <para>
@@ -680,7 +680,7 @@ class Foo implements Dispatchable
 {
     // assume composed event manager
 
-    public function dispatch(Request $request, Response $response = null)
+    public function dispatch(Request $request, ?Response $response = null)
     {
         $argv = compact('request', 'response');
         $results = $this->events()->triggerUntil(__FUNCTION__, $this, $argv, function($v) {
@@ -705,7 +705,7 @@ class Foo implements Dispatchable
 {
     // assume composed event manager
 
-    public function dispatch(Request $request, Response $response = null)
+    public function dispatch(Request $request, ?Response $response = null)
     {
         $argv = compact('request', 'response');
         $results = $this->events()->triggerUntil(__FUNCTION__, $this, $argv, function($v) {
