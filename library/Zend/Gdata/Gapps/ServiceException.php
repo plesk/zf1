@@ -25,15 +25,15 @@
 /**
  * Zend_Exception
  */
-require_once 'Zend/Exception.php';
+;// require_once 'Zend/Exception.php';
 
 /**
  * Zend_Gdata_Gapps_Error
  */
-require_once 'Zend/Gdata/Gapps/Error.php';
+;// require_once 'Zend/Gdata/Gapps/Error.php';
 
 /** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
+;// require_once 'Zend/Xml/Security.php';
 
 /**
  * Gdata Gapps Exception class. This is thrown when an
@@ -86,7 +86,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
         // Make sure that we don't try to index an error that doesn't
         // contain an index value.
         if ($error->getErrorCode() == null) {
-            require_once 'Zend/Gdata/App/Exception.php';
+            ;// require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception("Error encountered without corresponding error code.");
         }
 
@@ -161,7 +161,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
             $doc = @Zend_Xml_Security::scan($string, $doc);
 
             if (!$doc) {
-                require_once 'Zend/Gdata/App/Exception.php';
+                ;// require_once 'Zend/Gdata/App/Exception.php';
                 $message = error_get_last()['message'] ?? 'Unknown error';
                 throw new Zend_Gdata_App_Exception("DOMDocument cannot parse XML: $message");
             }
@@ -170,7 +170,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
             // If it isn't, something has gone horribly wrong.
             $rootElement = $doc->getElementsByTagName($this->_rootElement)->item(0);
             if (!$rootElement) {
-                require_once 'Zend/Gdata/App/Exception.php';
+                ;// require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element found, cannot parse feed.');
             }
 
@@ -183,7 +183,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
             }
             return $this;
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
+            ;// require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
         }
 
