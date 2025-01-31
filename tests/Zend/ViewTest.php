@@ -664,7 +664,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
 
     public function testZf995UndefinedPropertiesReturnNull()
     {
-        error_reporting(E_ALL | E_STRICT);
+        error_reporting(E_ALL);
         ini_set('display_errors', true);
         $view = new Zend_View();
         $view->setScriptPath(dirname(__FILE__) . '/View/_templates');
@@ -1145,7 +1145,7 @@ class Zend_ViewTest extends PHPUnit_Framework_TestCase
         $paths = $view->getScriptPaths();
         $this->assertContains($path, $paths, var_export($paths, 1));
     }
-    
+
     /**
      * @group ZF-10042
      */

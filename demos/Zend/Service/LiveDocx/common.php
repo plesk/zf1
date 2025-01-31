@@ -1,7 +1,7 @@
 <?php
 
 // Turn up error reporting
-error_reporting(E_ALL | E_STRICT);
+error_reporting(E_ALL);
 
 // Set path to libraries
 set_include_path(realpath(dirname(__FILE__) . '/../../../../library'));

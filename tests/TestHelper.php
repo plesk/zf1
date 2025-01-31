@@ -23,7 +23,7 @@
 /*
  * Set error reporting to the level to which Zend Framework code must comply.
  */
-error_reporting(E_ALL | E_STRICT);
+error_reporting(E_ALL);
 
 /*
  * Determine the root, library, and tests directories of the framework
