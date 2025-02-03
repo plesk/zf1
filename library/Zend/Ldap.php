@@ -103,7 +103,7 @@ class Zend_Ldap
      * @return boolean True if the DN was successfully parsed or false if the string is
      * not a valid DN.
      */
-    public static function explodeDn($dn, array &$keys = null, array &$vals = null)
+    public static function explodeDn($dn, ?array &$keys = null, ?array &$vals = null)
     {
         /**
          * @see Zend_Ldap_Dn
@@ -181,10 +181,10 @@ class Zend_Ldap
      * Return the LDAP error message of the last LDAP command
      *
      * @param  int   $errorCode
-     * @param  array $errorMessages
+     * @param  array|null $errorMessages
      * @return string
      */
-    public function getLastError(&$errorCode = null, array &$errorMessages = null)
+    public function getLastError(&$errorCode = null, ?array &$errorMessages = null)
     {
         $errorCode = $this->getLastErrorCode();
         $errorMessages = array();

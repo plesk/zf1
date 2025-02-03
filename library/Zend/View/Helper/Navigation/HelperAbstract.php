@@ -443,7 +443,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
      * @return Zend_View_Helper_Navigation_HelperAbstract  fluent interface,
      *                                                     returns self
      */
-    public function setAcl(Zend_Acl $acl = null)
+    public function setAcl(?Zend_Acl $acl = null)
     {
         $this->_acl = $acl;
         return $this;
