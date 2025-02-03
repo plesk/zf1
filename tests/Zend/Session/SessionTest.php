@@ -88,10 +88,10 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
         ini_set('session.save_path', $this->_savePath);
 
         $this->assertSame(
-            E_ALL | E_STRICT,
-            error_reporting( E_ALL | E_STRICT ),
-            'A test altered error_reporting to something other than E_ALL | E_STRICT'
-            );
+            E_ALL,
+            error_reporting( E_ALL ),
+            'A test altered error_reporting to something other than E_ALL'
+        );
 
         Zend_Session_Namespace::unlockAll();
 
@@ -1107,7 +1107,7 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
 
         // We don't need the session any more, clean it up
         //but we don't to want to destroy it completely, while other tests can start
-        Zend_Session::$_unitTestEnabled = true; 
+        Zend_Session::$_unitTestEnabled = true;
         Zend_Session::destroy();
         foreach ( $sessionCharSet as $subdir ) {
             @rmdir($sessionStore . DIRECTORY_SEPARATOR . $subdir);
