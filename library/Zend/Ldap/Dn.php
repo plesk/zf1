@@ -577,14 +577,14 @@ class Zend_Ldap_Dn implements ArrayAccess
      * )
      * for a DN of cn=name1+uid=user,cn=name2,dc=example,dc=org.
      *
-     * @param  string $dn
-     * @param  array  $keys     An optional array to receive DN keys (e.g. CN, OU, DC, ...)
-     * @param  array  $vals     An optional array to receive DN values
-     * @param  string $caseFold
+     * @param  string      $dn
+     * @param  array|null  $keys     An optional array to receive DN keys (e.g. CN, OU, DC, ...)
+     * @param  array|null  $vals     An optional array to receive DN values
+     * @param  string      $caseFold
      * @return array
      * @throws Zend_Ldap_Exception
      */
-    public static function explodeDn($dn, array &$keys = null, array &$vals = null,
+    public static function explodeDn($dn, ?array &$keys = null, ?array &$vals = null,
         $caseFold = self::ATTR_CASEFOLD_NONE)
     {
         $k = array();
@@ -616,13 +616,13 @@ class Zend_Ldap_Dn implements ArrayAccess
     }
 
     /**
-     * @param  string $dn       The DN to parse
-     * @param  array  $keys     An optional array to receive DN keys (e.g. CN, OU, DC, ...)
-     * @param  array  $vals     An optional array to receive DN values
-     * @param  string $caseFold
+     * @param  string      $dn       The DN to parse
+     * @param  array|null  $keys     An optional array to receive DN keys (e.g. CN, OU, DC, ...)
+     * @param  array|null  $vals     An optional array to receive DN values
+     * @param  string      $caseFold
      * @return boolean True if the DN was successfully parsed or false if the string is not a valid DN.
      */
-    public static function checkDn($dn, array &$keys = null, array &$vals = null,
+    public static function checkDn($dn, ?array &$keys = null, ?array &$vals = null,
         $caseFold = self::ATTR_CASEFOLD_NONE)
     {
         /* This is a classic state machine parser. Each iteration of the
