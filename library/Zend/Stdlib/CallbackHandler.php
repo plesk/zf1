@@ -98,7 +98,7 @@ class Zend_Stdlib_CallbackHandler
         $callable = is_callable($callback);
         restore_error_handler();
         if (!$callable || $this->error) {
-            require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
+            ;// require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
             throw new Zend_Stdlib_Exception_InvalidCallbackException('Invalid callback provided; not callable');
         }
 
@@ -277,7 +277,7 @@ class Zend_Stdlib_CallbackHandler
         list($class, $method) = explode('::', $callback, 2);
 
         if (!class_exists($class)) {
-            require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
+            ;// require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
             throw new Zend_Stdlib_Exception_InvalidCallbackException(sprintf(
                 'Static method call "%s" refers to a class that does not exist',
                 $callback
@@ -286,7 +286,7 @@ class Zend_Stdlib_CallbackHandler
 
         $r = new ReflectionClass($class);
         if (!$r->hasMethod($method)) {
-            require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
+            ;// require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
             throw new Zend_Stdlib_Exception_InvalidCallbackException(sprintf(
                 'Static method call "%s" refers to a method that does not exist',
                 $callback
@@ -294,7 +294,7 @@ class Zend_Stdlib_CallbackHandler
         }
         $m = $r->getMethod($method);
         if (!$m->isStatic()) {
-            require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
+            ;// require_once 'Zend/Stdlib/Exception/InvalidCallbackException.php';
             throw new Zend_Stdlib_Exception_InvalidCallbackException(sprintf(
                 'Static method call "%s" refers to a method that is not static',
                 $callback
