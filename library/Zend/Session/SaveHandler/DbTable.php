@@ -51,7 +51,7 @@ require_once 'Zend/Config.php';
  */
 class Zend_Session_SaveHandler_DbTable
     extends Zend_Db_Table_Abstract
-    implements Zend_Session_SaveHandler_Interface
+    implements SessionHandlerInterface
 {
     const PRIMARY_ASSIGNMENT                   = 'primaryAssignment';
     const PRIMARY_ASSIGNMENT_SESSION_SAVE_PATH = 'sessionSavePath';
