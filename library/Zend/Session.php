@@ -258,11 +258,11 @@ class Zend_Session extends Zend_Session_Abstract
     /**
      * setSaveHandler() - Session Save Handler assignment
      *
-     * @param Zend_Session_SaveHandler_Interface $interface
+     * @param SessionHandlerInterface $interface
      * @throws Zend_Session_Exception When the session_set_save_handler call fails
      * @return void
      */
-    public static function setSaveHandler(Zend_Session_SaveHandler_Interface $saveHandler)
+    public static function setSaveHandler(SessionHandlerInterface $saveHandler)
     {
         self::$_saveHandler = $saveHandler;
 
@@ -270,14 +270,7 @@ class Zend_Session extends Zend_Session_Abstract
             return;
         }
 
-        $result = session_set_save_handler(
-            array(&$saveHandler, 'open'),
-            array(&$saveHandler, 'close'),
-            array(&$saveHandler, 'read'),
-            array(&$saveHandler, 'write'),
-            array(&$saveHandler, 'destroy'),
-            array(&$saveHandler, 'gc')
-            );
+        $result = session_set_save_handler($saveHandler, true);
 
         if (!$result) {
             throw new Zend_Session_Exception('Unable to set session handler');

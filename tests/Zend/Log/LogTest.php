@@ -321,14 +321,12 @@ class Zend_Log_LogTest extends PHPUnit_Framework_TestCase
 
         trigger_error("Testing notice shows up in logs", E_USER_NOTICE);
         trigger_error("Testing warning shows up in logs", E_USER_WARNING);
-        trigger_error("Testing error shows up in logs", E_USER_ERROR);
 
         $this->expectingLogging = false;
         error_reporting(0);
 
         trigger_error("Testing notice misses logs", E_USER_NOTICE);
         trigger_error("Testing warning misses logs", E_USER_WARNING);
-        trigger_error("Testing error misses logs", E_USER_ERROR);
 
         restore_error_handler(); // Pop off the Logger
         restore_error_handler(); // Pop off the verifyHandlerData

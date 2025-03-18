@@ -628,13 +628,7 @@ abstract class Zend_View_Helper_Navigation_HelperAbstract
      */
     public function __toString()
     {
-        try {
-            return $this->render();
-        } catch (Exception $e) {
-            $msg = get_class($e) . ': ' . $e->getMessage();
-            trigger_error($msg, E_USER_ERROR);
-            return '';
-        }
+        return $this->render();
     }
 
     // Public methods:

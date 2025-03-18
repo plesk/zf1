@@ -584,16 +584,6 @@ class Zend_Soap_TestAsset_ServerTestClass
     {
         return "I'm Static!";
     }
-
-    /**
-     * Test Function 5 raises a user error
-     *
-     * @return void
-     */
-    public function testFunc5()
-    {
-        trigger_error("Test Message", E_USER_ERROR);
-    }
 }
 
 if (extension_loaded('soap')) {

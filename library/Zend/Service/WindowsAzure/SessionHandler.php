@@ -27,7 +27,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Service_WindowsAzure_SessionHandler
+class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterface
 {
 	/**
 	 * Maximal property size in table storage.
@@ -110,21 +110,17 @@ class Zend_Service_WindowsAzure_SessionHandler
 	 */
 	public function register()
 	{
-        return session_set_save_handler(array($this, 'open'),
-                                        array($this, 'close'),
-                                        array($this, 'read'),
-                                        array($this, 'write'),
-                                        array($this, 'destroy'),
-                                        array($this, 'gc')
-        );
+        return session_set_save_handler($this, true);
 	}
 	
     /**
      * Open the session store
-     * 
+     *
+     * @param $path
+     * @param $name
      * @return bool
      */
-    public function open()
+    public function open($path, $name)
     {
     	// Make sure storage container exists
     	if ($this->_storageType == self::STORAGE_TYPE_TABLE) {
