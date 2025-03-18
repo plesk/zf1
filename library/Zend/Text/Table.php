@@ -523,11 +523,6 @@ class Zend_Text_Table
      */
     public function __toString()
     {
-        try {
-            return $this->render();
-        } catch (Exception $e) {
-            trigger_error($e->getMessage(), E_USER_ERROR);
-        }
-
+        return $this->render();
     }
 }
