@@ -24,12 +24,12 @@
 /**
  * @see Zend_Gdata_App_Entry
  */
-require_once 'Zend/Gdata/App/Entry.php';
+;// require_once 'Zend/Gdata/App/Entry.php';
 
 /**
  * @see Zend_Gdata_App_FeedSourceParent
  */
-require_once 'Zend/Gdata/App/FeedSourceParent.php';
+;// require_once 'Zend/Gdata/App/FeedSourceParent.php';
 
 /**
  * Atom feed class
@@ -282,7 +282,7 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
     {
         $nextLink = $this->getNextLink();
         if (!$nextLink) {
-            require_once 'Zend/Gdata/App/HttpException.php';
+            ;// require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_Exception('No link to next set ' .
             'of results found.');
         }
@@ -303,7 +303,7 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
     {
         $previousLink = $this->getPreviousLink();
         if (!$previousLink) {
-            require_once 'Zend/Gdata/App/HttpException.php';
+            ;// require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_Exception('No link to previous set ' .
             'of results found.');
         }
