@@ -287,7 +287,7 @@ class Zend_Session_SaveHandler_DbTable
      * @param string $name
      * @return boolean
      */
-    public function open($save_path, $name)
+    public function open(string $save_path, string $name): bool
     {
         $this->_sessionSavePath = $save_path;
         $this->_sessionName     = $name;
@@ -300,7 +300,7 @@ class Zend_Session_SaveHandler_DbTable
      *
      * @return boolean
      */
-    public function close()
+    public function close(): bool
     {
         return true;
     }
@@ -309,9 +309,9 @@ class Zend_Session_SaveHandler_DbTable
      * Read session data
      *
      * @param string $id
-     * @return string
+     * @return string|false
      */
-    public function read($id)
+    public function read(string $id): string|false
     {
         $return = '';
 
@@ -335,7 +335,7 @@ class Zend_Session_SaveHandler_DbTable
      * @param string $data
      * @return boolean
      */
-    public function write($id, $data)
+    public function write(string $id, string $data): bool
     {
         $return = false;
 
@@ -367,7 +367,7 @@ class Zend_Session_SaveHandler_DbTable
      * @param string $id
      * @return boolean
      */
-    public function destroy($id)
+    public function destroy(string $id): bool
     {
         $return = false;
 
@@ -382,15 +382,13 @@ class Zend_Session_SaveHandler_DbTable
      * Garbage Collection
      *
      * @param int $maxlifetime
-     * @return true
+     * @return int|false
      */
-    public function gc($maxlifetime)
+    public function gc(int $maxlifetime): int|false
     {
-        $this->delete($this->getAdapter()->quoteIdentifier($this->_modifiedColumn, true) . ' + '
+        return $this->delete($this->getAdapter()->quoteIdentifier($this->_modifiedColumn, true) . ' + '
                     . $this->getAdapter()->quoteIdentifier($this->_lifetimeColumn, true) . ' < '
                     . $this->getAdapter()->quote(time()));
-
-        return true;
     }
 
     /**
