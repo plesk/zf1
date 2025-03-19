@@ -116,11 +116,11 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
     /**
      * Open the session store
      *
-     * @param $path
-     * @param $name
+     * @param string $path
+     * @param string $name
      * @return bool
      */
-    public function open($path, $name)
+    public function open(string $path, string $name): bool
     {
     	// Make sure storage container exists
     	if ($this->_storageType == self::STORAGE_TYPE_TABLE) {
@@ -138,7 +138,7 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
      * 
      * @return bool
      */
-    public function close()
+    public function close(): bool
     {
         return true;
     }
@@ -146,10 +146,10 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
     /**
      * Read a specific session
      * 
-     * @param int $id Session Id
-     * @return string
+     * @param string $id Session Id
+     * @return string|false
      */
-    public function read($id)
+    public function read(string $id): string|false
     {
     	// Read data
        	if ($this->_storageType == self::STORAGE_TYPE_TABLE) {
@@ -187,11 +187,11 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
     /**
      * Write a specific session
      * 
-     * @param int $id Session Id
+     * @param string $id Session Id
      * @param string $serializedData Serialized PHP object
      * @throws Exception
      */
-    public function write($id, $serializedData)
+    public function write(string $id, string $serializedData): bool
     {
     	// Encode data
     	$serializedData = base64_encode(serialize($serializedData));
@@ -230,10 +230,10 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
     /**
      * Destroy a specific session
      * 
-     * @param int $id Session Id
+     * @param string $id Session Id
      * @return boolean
      */
-    public function destroy($id)
+    public function destroy(string $id): bool
     {
 		// Destroy data
        	if ($this->_storageType == self::STORAGE_TYPE_TABLE) {
@@ -279,9 +279,9 @@ class Zend_Service_WindowsAzure_SessionHandler implements SessionHandlerInterfac
      * @see session.gc_maxlifetime 1440
      * @see session.gc_probability 1
      * @usage Execution rate 1/100 (session.gc_probability/session.gc_divisor)
-     * @return boolean
+     * @return int|false
      */
-    public function gc($lifeTime)
+    public function gc(int $lifeTime): int|false
     {
        	if ($this->_storageType == self::STORAGE_TYPE_TABLE) {
     		// In table storage
