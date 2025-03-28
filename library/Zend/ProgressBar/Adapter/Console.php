@@ -455,7 +455,7 @@ class Zend_ProgressBar_Adapter_Console extends Zend_ProgressBar_Adapter
                     break;
 
                 case self::ELEMENT_TEXT:
-                    $renderedElements[] = Zend_Text_MultiByte::strPad(substr($text, 0, $this->_textWidth), $this->_textWidth, ' ', STR_PAD_RIGHT, $this->_charset);
+                    $renderedElements[] = Zend_Text_MultiByte::strPad(substr($text ?? '', 0, $this->_textWidth), $this->_textWidth, ' ', STR_PAD_RIGHT, $this->_charset);
                     break;
             }
         }
