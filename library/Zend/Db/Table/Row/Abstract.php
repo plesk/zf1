@@ -23,7 +23,7 @@
 /**
  * @see Zend_Db
  */
-require_once 'Zend/Db.php';
+;// require_once 'Zend/Db.php';
 
 /**
  * @category   Zend
@@ -122,7 +122,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
 
         if (isset($config['data'])) {
             if (!is_array($config['data'])) {
-                require_once 'Zend/Db/Table/Row/Exception.php';
+                ;// require_once 'Zend/Db/Table/Row/Exception.php';
                 throw new Zend_Db_Table_Row_Exception('Data must be an array');
             }
             $this->_data = $config['data'];
@@ -157,7 +157,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     protected function _transformColumn($columnName)
     {
         if (!is_string($columnName)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('Specified column is not a string');
         }
         // Perform no transformation by default
@@ -175,7 +175,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     {
         $columnName = $this->_transformColumn($columnName);
         if (!array_key_exists($columnName, $this->_data)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Specified column \"$columnName\" is not in the row");
         }
         return $this->_data[$columnName];
@@ -193,7 +193,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     {
         $columnName = $this->_transformColumn($columnName);
         if (!array_key_exists($columnName, $this->_data)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Specified column \"$columnName\" is not in the row");
         }
         $this->_data[$columnName] = $value;
@@ -211,11 +211,11 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     {
         $columnName = $this->_transformColumn($columnName);
         if (!array_key_exists($columnName, $this->_data)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Specified column \"$columnName\" is not in the row");
         }
         if ($this->isConnected() && in_array($columnName, $this->_table->info('primary'))) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Specified column \"$columnName\" is a primary key and should not be unset");
         }
         unset($this->_data[$columnName]);
@@ -343,7 +343,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
 
         $tableClass = get_class($table);
         if (! $table instanceof $this->_tableClass) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("The specified Table is of class $tableClass, expecting class to be instance of $this->_tableClass");
         }
 
@@ -353,13 +353,13 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
         $info = $this->_table->info();
 
         if ($info['cols'] != array_keys($this->_data)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('The specified Table does not have the same columns as the Row');
         }
 
         if (! array_intersect((array) $this->_primary, $info['primary']) == (array) $this->_primary) {
 
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("The specified Table '$tableClass' does not have the same primary key as the Row");
         }
 
@@ -452,7 +452,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
          * A read-only row cannot be saved.
          */
         if ($this->_readOnly === true) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('This row has been marked read-only');
         }
 
@@ -510,7 +510,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
          * A read-only row cannot be saved.
          */
         if ($this->_readOnly === true) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('This row has been marked read-only');
         }
 
@@ -599,7 +599,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
          * A read-only row cannot be deleted.
          */
         if ($this->_readOnly === true) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('This row has been marked read-only');
         }
 
@@ -693,7 +693,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     protected function _getTable()
     {
         if (!$this->_connected) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('Cannot save a Row unless it is connected');
         }
         return $this->_table;
@@ -708,7 +708,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
     protected function _getPrimaryKey($useDirty = true)
     {
         if (!is_array($this->_primary)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("The primary key must be set as an array");
         }
 
@@ -719,7 +719,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             $array = array_intersect_key($this->_cleanData, $primary);
         }
         if (count($primary) != count($array)) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("The specified Table '$this->_tableClass' does not have the same primary key as the Row");
         }
         return $array;
@@ -772,7 +772,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
         $row = $this->_getTable()->fetchRow($where);
 
         if (null === $row) {
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception('Cannot refresh row as parent is missing');
         }
 
@@ -889,7 +889,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             if ($type == 'object') {
                 $type = get_class($dependentTable);
             }
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Dependent table must be a Zend_Db_Table_Abstract, but it is $type");
         }
 
@@ -945,7 +945,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             if ($type == 'object') {
                 $type = get_class($parentTable);
             }
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Parent table must be a Zend_Db_Table_Abstract, but it is $type");
         }
 
@@ -1013,7 +1013,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             if ($type == 'object') {
                 $type = get_class($intersectionTable);
             }
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Intersection table must be a Zend_Db_Table_Abstract, but it is $type");
         }
 
@@ -1033,7 +1033,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             if ($type == 'object') {
                 $type = get_class($matchTable);
             }
-            require_once 'Zend/Db/Table/Row/Exception.php';
+            ;// require_once 'Zend/Db/Table/Row/Exception.php';
             throw new Zend_Db_Table_Row_Exception("Match table must be a Zend_Db_Table_Abstract, but it is $type");
         }
 
@@ -1097,10 +1097,10 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
         $rowsetClass = $matchTable->getRowsetClass();
         if (!class_exists($rowsetClass)) {
             try {
-                require_once 'Zend/Loader.php';
+                ;// require_once 'Zend/Loader.php';
                 Zend_Loader::loadClass($rowsetClass);
             } catch (Zend_Exception $e) {
-                require_once 'Zend/Db/Table/Row/Exception.php';
+                ;// require_once 'Zend/Db/Table/Row/Exception.php';
                 throw new Zend_Db_Table_Row_Exception($e->getMessage(), $e->getCode(), $e);
             }
         }
@@ -1166,7 +1166,7 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
             return $this->findDependentRowset($class, $ruleKey1, $select);
         }
 
-        require_once 'Zend/Db/Table/Row/Exception.php';
+        ;// require_once 'Zend/Db/Table/Row/Exception.php';
         throw new Zend_Db_Table_Row_Exception("Unrecognized method '$method()'");
     }
 
