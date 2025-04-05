@@ -1248,7 +1248,7 @@ class Zend_Mail extends Zend_Mime_Message
                       "\t" => '',
         );
 
-        return strtr($data, $rule);
+        return trim(strtr(strval($name), $rule));
     }
 
     /**
